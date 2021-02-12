@@ -5,8 +5,8 @@ My personal Portfolio website
 
 # Screenshot - Dark Theme
 
-<img loading="eager" width="100%" src="https://raw.githubusercontent.com/BaluVadivel/Portfolio/main/thumbnail.png" title="Thumbnail Dark Theme" alt="">
+<img width="100%" src="https://raw.githubusercontent.com/BaluVadivel/Portfolio/main/thumbnail.png" title="Thumbnail Dark Theme" alt="">
 
 # Screenshot - Light Theme
 
-<img loading="eager" width="100%" src="https://raw.githubusercontent.com/BaluVadivel/Portfolio/main/thumbnail-light.png" title="Thumbnail Light Theme" alt="">
+<img width="100%" src="https://raw.githubusercontent.com/BaluVadivel/Portfolio/main/thumbnail-light.png" title="Thumbnail Light Theme" alt="">
