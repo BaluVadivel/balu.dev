@@ -1,9 +1,12 @@
 # Portfolio
-My personal Portfolio
+My personal Portfolio website
 
 # Live [balu.dev](https://balu.dev)
 
+# Screenshot - Dark Theme
 
-# Screenshot
+<img loading="eager" width="100%" src="https://raw.githubusercontent.com/BaluVadivel/Portfolio/main/thumbnail.png" title="Thumbnail Dark Theme" alt="">
 
-<img loading="eager" width="100%" src="https://raw.githubusercontent.com/BaluVadivel/Portfolio/main/preview.jpg" alt="">
+# Screenshot - Light Theme
+
+<img loading="eager" width="100%" src="https://raw.githubusercontent.com/BaluVadivel/Portfolio/main/thumbnail-light.png" title="Thumbnail Light Theme" alt="">
