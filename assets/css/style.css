@@ -40,9 +40,9 @@ section > h1 > a {
     max-height: 1100px;
 }
 #about header {
-    width: calc(100% - 20px);
-    margin: 0px auto;
-    height: 80px;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 18px;
 }
 #logo {
     height: 80px;
@@ -53,7 +53,8 @@ section > h1 > a {
     width: calc(100% - 20px);
     margin: 0px auto;
     height: auto;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 100px);
+    max-height: 1000px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -185,19 +186,17 @@ section > h1 > a {
 #contact {
     width: 100%;
     height: auto;
-    min-height: calc(100vh - 100px);
+    min-height: auto;
     max-height: 800px;
     padding-top: 20px;
-}
-#contact .mail-container {
-    width: 100%;
-    text-align: center;
 }
 #contact > h1 {
     height: 40px;
 }
-.mail-container {
-    height: 140px;
+#contact .mail-container {
+    width: 100%;
+    height: 100px;
+    text-align: center;
     display: flex;
     align-items: center;
 }
@@ -210,7 +209,7 @@ section > h1 > a {
     text-decoration: none;
     color: black;
     background-color: rgb(93, 223, 255);
-    padding: 6px 16px;
+    padding: 6px 12px;
     border-radius: 6px;
     letter-spacing: 3px;
 }
@@ -220,25 +219,22 @@ section > h1 > a {
 #contact .social-link-container {
     width: 100%;
     height: auto;
-    min-height: calc(100vh - 280px);
-    max-height: 1200px;
+    max-height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 #contact .social-link-title {
     width: 100%;
-    height: 100px;
+    height:60px;
     text-align: center;
-    font-size: 3.4rem;
-    font-weight: 700;
-    text-decoration: underline;
+    font-size: 3.2rem;
 }
 #contact .social-link {
     width: 100%;
-    height: 100%;
-    min-height: calc(100vh - 380px);
+    height: calc(100vh - 260px);
+    min-height: 240px;
+    max-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -269,7 +265,7 @@ section > h1 > a {
 
 footer {
     width: 100%;
-    height: 80px;
+    height: 60px;
     font-size: 1.4rem;
     font-weight: 500;
     background-color: rgb(255, 174, 0);
@@ -313,7 +309,7 @@ footer a {
         letter-spacing: 2px;
     }
     #contact .social-link-title {
-        font-size: calc(1.8 * 4.4vw);
+        font-size: calc(1.8 * 4vw);
     }
     footer {
         font-size: calc(.8 * 4vw);
