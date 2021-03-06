@@ -6,7 +6,3 @@ My personal Portfolio website
 ### Screenshot - Dark Theme
 
 <img width="100%" src="https://raw.githubusercontent.com/BaluVadivel/Portfolio/main/assets/thumbnail/dark.png" title="Thumbnail Dark Theme" alt="">
-
-### Screenshot - Light Theme
-
-<img width="100%" src="https://raw.githubusercontent.com/BaluVadivel/Portfolio/main/assets/thumbnail/light.png" title="Thumbnail Light Theme" alt="">
