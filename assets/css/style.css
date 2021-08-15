@@ -1,6 +1,5 @@
 html, body {
     width: 100%;
-
     /*
     100vw take viewport width with including
     the width under vertical(y-axis) scrollbar
@@ -14,9 +13,11 @@ html, body {
     scroll-behavior: smooth;
     color: black;
     font-size: 18px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Helvetica Neue", Arial, sans-serif, "Ubuntu", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    /* best system fonts used by github, bootstrap etc. SRC from https://flaviocopes.com/css-system-fonts/ */
-    background-color: #fff;
+    background-color: #ddd;
+    font-family: 'Roboto Mono', monospace;
+}
+body {
+    overflow: hidden;
 }
 * {
     box-sizing: border-box;
@@ -26,10 +27,46 @@ html, body {
 section {
     width: 100%;
     height: auto;
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 800px;
 }
-
+#loading {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    height: 100%;
+    background-color: #ddd;
+}
+#loading.hide {
+    opacity: 0;
+    display: none;
+}
+#loading div {
+    text-align: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 10px solid #aaa;
+    border-bottom: 10px solid #111;
+    animation: rotate .7s alternate ease-in-out infinite;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(110deg);
+    }
+    100% {
+        transform: rotate(-110deg);
+    }
+}
+#loading .logo {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    margin-left: 6px;
+}
+.logo path {
+    fill: #000;
+}
 section > h1 {
     width: calc(100% - 100px);
     margin: 10px auto;
@@ -44,15 +81,52 @@ section > h1 > a {
 }
 #about header {
     width: 100%;
+    display: flex;
     padding-top: 20px;
     padding-left: 18px;
 }
-#logo {
+#about .logo {
     height: 80px;
     width: 80px;
 }
-#logo path {
-    fill:#000;
+#toggle-container {
+    border-radius: 30px;
+    width: 70px;
+    height: 30px;
+    box-sizing: content-box;
+    padding: 4px;
+    display: flex;
+    margin: auto 10vw 30px auto;
+    background-color: #000;
+}
+#about header #toggle-input {
+    display: none;
+}
+#toggle-container #icon-hider {
+    position: absolute;
+    z-index: 5;
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+    border-radius: 50%;
+    background-color: #ddd;
+    transition: ease-in-out 240ms 20ms;
+}
+#toggle-input:checked + #toggle-container #icon-hider {
+    margin-left: 38px;
+}
+#toggle-container img {
+    height: calc(100% - 6px);
+    margin-top: 3px;
+}
+#toggle-container #moon {
+    margin-left: 3px;
+}
+#toggle-container #sun {
+    height: calc(100% - 3px);
+    margin-left: auto;
+    margin-right: 3px;
+    margin-top: 2px;
 }
 #about main {
     width: calc(100% - 20px);
@@ -94,8 +168,9 @@ section > h1 > a {
     justify-content: space-evenly;
 }
 #about main .about .about-me {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 3.4rem;
+    font-weight: 900;
+    font-family: 'Titillium Web', sans-serif;
 }
 #about main .about .describe {
     text-align: justify;
@@ -112,7 +187,7 @@ section > h1 > a {
     border-radius: 6px;
     text-align: center;
     text-decoration: none;
-    color: white;
+    color: #fff;
     font-weight: bold;
 }
 #skills {
@@ -138,6 +213,8 @@ section > h1 > a {
 #skills img {
     width: 100px;
     padding: 10px;
+    border-radius: 6px;
+    background-color: #ddd;
 }
 #projects {
     height: auto;
@@ -155,10 +232,10 @@ section > h1 > a {
     max-width: 460px;
     margin: 20px auto;
     text-align: center;
-    background-color: rgb(255, 89, 48);
+    background-color: #1d7797;
     border-radius: 8px;
     overflow: hidden;
-    border: 4px solid rgb(255, 89, 48);
+    padding: 4px;
 }
 #projects .projects-container img {
     width: 100%;
@@ -182,7 +259,7 @@ section > h1 > a {
     padding: 4px 6px;
     color: black;
     text-decoration: none;
-    background-color: lightblue;
+    background-color: #ddd;
 }
 #projects .svg {
     fill: #000;
@@ -214,8 +291,8 @@ section > h1 > a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: black;
-    background-color: rgb(93, 223, 255);
+    color: white;
+    background-color: #31393C;
     padding: 6px 12px;
     border-radius: 6px;
     letter-spacing: 3px;
@@ -254,6 +331,7 @@ section > h1 > a {
     max-width: 140px;
     text-decoration: none;
     color: black;
+    background-color: #ddd;
     font-size: 1.2rem;
     display: flex;
     align-items: center;
@@ -281,16 +359,19 @@ footer {
     height: 60px;
     font-size: 1.4rem;
     font-weight: 500;
-    background-color: rgb(255, 174, 0);
-    color: black;
+    background-color: #31393C;
+    color: white;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 footer a {
-    color: black;
+    color: white;
 }
 @media (max-width:880px) {
+    #about header div {
+        margin-right: 8vw;
+    }
     #about main {
         flex-direction: column;
     }
@@ -310,6 +391,9 @@ footer a {
         padding-top: 20px;
         font-size: 1.4rem;
         line-height: 1.4;
+    }
+    #projects .projects-container {
+        min-width: 35%;
     }
     #projects .link-item span {
         font-size: calc(1.2 * 2.2vw);
@@ -336,6 +420,7 @@ footer a {
         width: 90%;
         max-width: auto;
         margin: 10px auto;
+        min-width: auto;
     }
     #projects .link-item span {
         font-size: calc(1.3 * 3.6vw);
@@ -345,30 +430,29 @@ footer a {
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    html, body {
-        color: #ddd;
-        background-color: black;
-    }
-    section > h1 > a {
-        color: rgb(42, 42, 255);
-        }
-    #logo path {
-        fill:#fff;
-    }
-    #about main .about a {
-        background-color: #ddd;
-        color: #000;
-    }
-    #skills img {
-        border-radius: 6px;
-        background-color: #ddd;
-    }
-    #contact .social-link a {
-        color: #ddd;
-        border: 2px solid #ddd;
-    }
-    #contact svg path {
-        fill: #ddd;
-    }
+/*************** DARK-THEME ***************/
+
+body.dark-theme {
+    color: #fff;
+    background-color: black;
+}
+.dark-theme .logo path {
+    fill: #fff;
+}
+.dark-theme #about main .about a {
+    background-color: white;
+    color: black;
+}
+.dark-theme #loading {
+    background-color: #000;
+}
+.dark-theme #loading div {
+    border-color: #111;
+    border-bottom-color: #aaa;
+}
+.dark-theme #toggle-container {
+    background-color: #444;
+}
+.dark-theme #toggle-container #icon-hider {
+    background-color: #ddd;
 }
