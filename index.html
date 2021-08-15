@@ -13,28 +13,42 @@
 
     <meta name="twitter:site" content="@BaluVadivel">
     <meta name="twitter:creator" content="@BaluVadivel">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://balu.dev/assets/thumbnail/dark.png">
+    <meta name="twitter:image" content="https://balu.dev/assets/thumbnail/favicon.png">
 
     <meta property="og:url" content="https://balu.dev">
     <meta property="og:title" content="Balu Vadivel">
     <meta property="og:description" content="I am a lifetime Learner Who Learning Front-End Web development to create user friendly responsive websites.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://balu.dev/assets/thumbnail/dark.png">
+    <meta property="og:image" content="https://balu.dev/assets/thumbnail/favicon.png">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="627">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Titillium+Web:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<!----------------------- LOADING ----------------------->
+
+    <section id="loading">
+        <div></div>
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 100 100">
+            <rect width="100" height="100" rx="0" fill="#0000"> 
+                <!-- rect Fill value is full transparent -->
+            </rect>
+            <path d="M61.30 86L61.30 86L22.90 86Q21 86 20.15 85.15Q19.30 84.30 19.30 82.40L19.30 82.40L19.30 17.60Q19.30 15.70 20.15 14.85Q21 14 22.90 14L22.90 14L54.80 14Q64.60 14 69.30 17.75Q74 21.50 74 29.30L74 29.30L74 34.10Q74 38.30 72.55 40.95Q71.10 43.60 68.10 44.90L68.10 44.90Q74.50 45.50 77.60 49.30Q80.70 53.10 80.70 60.40L80.70 60.40L80.70 69.60Q80.70 78 75.95 82Q71.20 86 61.30 86ZM50.30 31L41.80 31L41.80 41.80L50.30 41.80Q52.20 41.80 53.15 40.80Q54.10 39.80 54.10 37.80L54.10 37.80L54.10 35Q54.10 33 53.15 32Q52.20 31 50.30 31L50.30 31ZM54.80 57.20L41.80 57.20L41.80 69L54.80 69Q56.70 69 57.65 68Q58.60 67 58.60 65L58.60 65L58.60 61.10Q58.60 59.10 57.65 58.15Q56.70 57.20 54.80 57.20L54.80 57.20Z">
+                <!-- path(B) Fill value is given on css to change based on theme -->
+            </path>
+        </svg>
+    </section>
 
 <!----------------------- ABOUT ----------------------->
 
     <section id="about">
         <header>
-            <svg id="logo" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 100 100">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 100 100">
                 <rect width="100" height="100" rx="0" fill="#0000"> 
                     <!-- rect Fill value is full transparent -->
                 </rect>
@@ -42,6 +56,13 @@
                     <!-- path(B) Fill value is given on css to change based on theme -->
                 </path>
             </svg>
+            <input type="checkbox" id="toggle-input">
+            <label id="toggle-container" for="toggle-input">
+                <span id="icon-hider">
+                </span>
+                <img id="moon" src="./assets/img/icon-moon.svg" alt="">
+                <img id="sun" src="./assets/img/icon-sun.svg" alt="" >
+            </label>
         </header>
         <main>
             <div class="profile">
@@ -54,7 +75,7 @@
             <div class="about">
                 <h2 class="about-me">About me</h2>
                 <p class="describe">
-                    I am a lifetime learner who is currently learning Front-End Web development to create user friendly responsive websites.
+                    I am a lifetime learner who is currently learning Front End Web development to create user friendly responsive websites.
                 </p>
                 <a href="mailto:balu15gb@gmail.com">CONTACT</a>
             </div>
@@ -72,12 +93,12 @@
                     <picture title="HTML 5">
                         <source type="image/svg+xml" srcset="assets/img/skills-html.svg">
                         <source type="image/webp" srcset="assets/img/skills-html.webp">
-                        <img loading="lazy" src="assets/img/skills-html.png" alt="">
+                        <img loading="eager" src="assets/img/skills-html.png" alt="">
                     </picture>
                     <picture title="CSS 3">
                         <source type="image/svg+xml" srcset="assets/img/skills-css.svg">
-                            <source type="image/webp" srcset="assets/img/skills-css.webp">
-                            <img loading="lazy" src="assets/img/skills-css.png" alt="">
+                        <source type="image/webp" srcset="assets/img/skills-css.webp">
+                        <img loading="eager" src="assets/img/skills-css.png" alt="">
                     </picture>
                 </div>
             </div>
@@ -87,8 +108,8 @@
                 <div class="skill-picture">
                     <picture title="C Programming">
                         <source type="image/svg+xml" srcset="assets/img/skills-c.svg">
-                            <source type="image/webp" srcset="assets/img/skills-c.webp">
-                            <img loading="lazy" src="assets/img/skills-c.png" alt="">
+                        <source type="image/webp" srcset="assets/img/skills-c.webp">
+                        <img loading="eager" src="assets/img/skills-c.png" alt="">
                     </picture>
                 </div>
             </div>
@@ -98,13 +119,13 @@
                 <div class="skill-picture">
                     <picture title="GIT Version Control">
                         <source type="image/svg+xml" srcset="assets/img/skills-git.svg">
-                            <source type="image/webp" srcset="assets/img/skills-git.webp">
-                            <img loading="lazy" src="assets/img/skills-git.png" alt="">
+                        <source type="image/webp" srcset="assets/img/skills-git.webp">
+                        <img loading="eager" src="assets/img/skills-git.png" alt="">
                     </picture>
                     <picture  title="VS Code">
                         <source type="image/svg+xml" srcset="assets/img/skills-vscode.svg">
-                            <source type="image/webp" srcset="assets/img/skills-vscode.webp">
-                            <img loading="lazy" src="assets/img/skills-vscode.png" alt="">
+                        <source type="image/webp" srcset="assets/img/skills-vscode.webp">
+                        <img loading="eager" src="assets/img/skills-vscode.png" alt="">
                     </picture>
                 </div>
             </div>
@@ -120,7 +141,7 @@
                 <picture>
                     <source type="image/webp" srcset="assets/img/project1-tribute-page.webp">
                     <source type="image/jpg" srcset="assets/img/project1-tribute-page.jpg">
-                    <img loading="lazy" src="assets/img/project1-tribute-page.png" alt="">
+                    <img loading="eager" src="assets/img/project1-tribute-page.png" alt="">
                 </picture>
                 <div class="link">
                     <a class="link-item" href="https://github.com/BaluVadivel/FreeCodeCamp/tree/main/tribute-page">
@@ -136,7 +157,7 @@
             <div class="projects-container">
                 <picture>
                     <source type="image/webp" srcset="assets/img/project2-survey-form.webp">
-                    <img loading="lazy" src="assets/img/project2-survey-form.png" alt="">
+                    <img loading="eager" src="assets/img/project2-survey-form.png" alt="">
                 </picture>
                 <div class="link">
                     <a class="link-item" href="https://github.com/BaluVadivel/FreeCodeCamp/tree/main/survey-form">
@@ -152,7 +173,7 @@
             <div class="projects-container">
                 <picture>
                     <source type="image/webp" srcset="assets/img/project3-product-landing.webp">
-                    <img loading="lazy" src="assets/img/project3-product-landing.png" alt="">
+                    <img loading="eager" src="assets/img/project3-product-landing.png" alt="">
                 </picture>
                 <div class="link">
                     <a class="link-item github-before" href="https://github.com/BaluVadivel/FreeCodeCamp/tree/main/product-landing">
@@ -168,7 +189,7 @@
             <div class="projects-container">
                 <picture>
                     <source type="image/webp" srcset="assets/img/project4-technical-documentation.webp">
-                    <img loading="lazy" src="assets/img/project4-technical-documentation.png" alt="">
+                    <img loading="eager" src="assets/img/project4-technical-documentation.png" alt="">
                 </picture>
                 <div class="link">
                     <a class="link-item" href="https://github.com/BaluVadivel/FreeCodeCamp/tree/main/technical-documentation">
@@ -225,9 +246,10 @@
             &copy;2021 Balu
         </div>
         <div>
-            <a href="https://github.com/BaluVadivel/Portfolio">Source Code</a>
+            <a href="https://github.com/BaluVadivel/balu.dev">Source Code</a>
         </div>
     </footer>
 
 </body>
+<script src="./assets/script/script.js"></script>
 </html>
