@@ -40,6 +40,7 @@ savedTheme();
 window.addEventListener('load', function() {
     document.getElementById('loading').classList.add("hide");
     document.body.style.overflow = "auto";
+    document.body.style.transition = "ease-in-out 240ms 20ms";
 })
 
 
