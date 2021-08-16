@@ -29,12 +29,15 @@ section {
     height: auto;
 }
 #loading {
-    position: absolute;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
-    height: 100%;
     background-color: #ddd;
 }
 #loading.hide {
@@ -48,7 +51,7 @@ section {
     border-radius: 50%;
     border: 10px solid #aaa;
     border-bottom: 10px solid #111;
-    animation: rotate .7s alternate ease-in-out infinite;
+    animation: rotate .6s alternate ease-in-out infinite;
 }
 @keyframes rotate {
     0% {
@@ -68,13 +71,12 @@ section {
     fill: #000;
 }
 section > h1 {
-    width: calc(100% - 100px);
+    width: calc(100% - 40px);
     margin: 10px auto;
-    font-size: 2.2rem;
+    font-size: 3.4rem;
+    font-weight: 900;
+    font-family: 'Titillium Web', sans-serif;
 }
-section > h1 > a {
-    color: rgb(0, 0, 255);
-    }
 #about {
     min-height: 100vh;
     max-height: 1100px;
@@ -182,12 +184,13 @@ section > h1 > a {
 #about main .about a {
     width: auto;
     margin: 20px auto;
-    padding: 10px 16px;
-    background-color: black;
+    padding: 6px 12px;
+    background-image: linear-gradient(40deg, #0071b8 0%, #6F00FF 100%);
     border-radius: 6px;
-    text-align: center;
+    font-size: 1.2rem;
     text-decoration: none;
     color: #fff;
+    letter-spacing: 1px;
     font-weight: bold;
 }
 #skills {
@@ -195,6 +198,7 @@ section > h1 > a {
 }
 #skills > div {
     width: 90%;
+    margin-top: -20px;
 }
 #skills .skill-section {
     width: 90%;
@@ -216,6 +220,9 @@ section > h1 > a {
     border-radius: 6px;
     background-color: #ddd;
 }
+#skills .noPadding img {
+    padding: 0px;
+}
 #projects {
     height: auto;
     padding-top: 20px;
@@ -232,14 +239,14 @@ section > h1 > a {
     max-width: 460px;
     margin: 20px auto;
     text-align: center;
-    background-color: #1d7797;
+    background-image: linear-gradient(40deg, #0071b8 0%, #6F00FF 100%);
     border-radius: 8px;
     overflow: hidden;
     padding: 4px;
 }
 #projects .projects-container img {
     width: 100%;
-    border-radius: 0px 0px 3px 3px;
+    border-radius: 3px;
 }
 #projects .link {
     width: 100%;
@@ -265,7 +272,6 @@ section > h1 > a {
     fill: #000;
     height: 1.2rem;
 }
-
 #contact {
     width: 100%;
     height: auto;
@@ -359,7 +365,8 @@ footer {
     height: 60px;
     font-size: 1.4rem;
     font-weight: 500;
-    background-color: #31393C;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(40deg, #0071b8 0%, #6F00FF 100%);
     color: white;
     display: flex;
     justify-content: space-evenly;
@@ -379,17 +386,20 @@ footer a {
         padding-top: 50px;
         width: 100%;
     }
+    #about main .profile div {
+        font-size: 1.2rem;
+    }
     #about main .about {
         width: calc(100% - 20px);
         margin: 0px auto;
         padding-top: 50px;
     }
-    #about main .about .about-me {
-        font-size: 1.4rem;
+    #about main .about .about-me, section > h1 {
+        font-size: 2.6rem;
     }
     #about main .about .describe {
         padding-top: 20px;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         line-height: 1.4;
     }
     #projects .projects-container {
@@ -413,6 +423,21 @@ footer a {
     }
 }
 @media (max-width:560px) {
+    #toggle-container {
+        width: 54px;
+        height: 26px;
+        padding: 2px;
+    }
+    #toggle-container #icon-hider {
+        width: 26px;
+        height: 26px;
+    }
+    #toggle-input:checked + #toggle-container #icon-hider {
+        margin-left: 28px;
+    }
+    #toggle-container #sun {
+        height: calc(100% - 4px);
+    }
     #projects .projects-item {
         flex-direction: column;
     }
@@ -438,10 +463,6 @@ body.dark-theme {
 }
 .dark-theme .logo path {
     fill: #fff;
-}
-.dark-theme #about main .about a {
-    background-color: white;
-    color: black;
 }
 .dark-theme #loading {
     background-color: #000;
