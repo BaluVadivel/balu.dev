@@ -1,260 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Balu Vadivel</title>
-    <meta name='keywords' content=' Balu Vadivel , Balu Vadivel portfolio , Balu Vadivel portfolio website , balu.dev , balu dev '>
-    <meta name='description' content='Hi i am Balu Vadivel a lifetime learner who is currently learning Front End Web development to create user friendly responsive websites.'>
-    <meta name='subject' content='Portfolio Website'>
-    <meta name='author' content='Balu Vadivel'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balu V - Flutter Developer</title>
+    <meta name='keywords' content=' Balu V , Balu Flutter , balu.dev , balu dev '>
+    <meta name="description" content="Portfolio coming soon - Flutter developer creating beautiful cross-platform apps">
+    <meta name='author' content='Balu V'>
+    <meta name='subject' content='Portfolio coming soon'>
     <meta name='url' content='https://balu.dev'>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-    <meta name="twitter:site" content="@BaluVadivel">
-    <meta name="twitter:creator" content="@BaluVadivel">
-    <meta name="twitter:image" content="https://balu.dev/assets/thumbnail/favicon.png">
+        :root {
+            --primary: #02569B;
+            --primary-light: #45D1FD;
+            --text: #1A1A1A;
+            --bg: #FFFFFF;
+            --gray: #F5F5F5;
+            --card-bg: #FFFFFF;
+            --text-secondary: #555;
+            --transition-speed: 1s;
+            /* Increased to 2 seconds */
+        }
 
-    <meta property="og:url" content="https://balu.dev">
-    <meta property="og:title" content="Balu Vadivel">
-    <meta property="og:description" content="I am a lifetime learner who is currently learning Front End Web development to create user friendly responsive websites.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://balu.dev/assets/thumbnail/favicon.png">
-    <meta property="og:image:type" content="image/png">
+        /* Fallback gray theme (before JS loads) */
+        body:not(.theme-loaded) {
+            --bg: #f0f0f0;
+            --card-bg: #e0e0e0;
+            --text: #333333;
+            --text-secondary: #666666;
+        }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Titillium+Web:wght@700;900&display=swap" rel="stylesheet">
+        /* Dark theme variables */
+        body.dark {
+            --primary: #45D1FD;
+            --primary-light: #02569B;
+            --bg: #121212;
+            --card-bg: #1E1E1E;
+            --text: #FFFFFF;
+            --gray: #2D2D2D;
+            --text-secondary: #BBBBBB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            line-height: 1.6;
+            transition: background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease;
+        }
+
+        .logo {
+            width: 120px;
+            height: 148px;
+            margin-bottom: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            transition: color var(--transition-speed) ease;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text);
+            transition: all var(--transition-speed) ease;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            background: var(--gray);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Theme toggle styles - centered at top */
+        .theme-toggle {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .theme-select {
+            padding: 0.5rem 1.5rem 0.5rem 1rem;
+            /* More padding on right */
+            border-radius: 8px;
+            background: var(--gray);
+            color: var(--text);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            appearance: none;
+            /* Remove default arrow */
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1rem;
+            padding-right: 2rem;
+            /* Space for custom arrow */
+        }
+
+        .theme-select:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .social-link {
+                justify-content: center;
+            }
+
+            .theme-toggle {
+                position: static;
+                transform: none;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Theme Toggle - Centered at Top -->
+    <div class="theme-toggle">
+        <select id="theme-selector" class="theme-select">
+            <option value="auto">Auto</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </div>
 
-<!----------------------- LOADING ----------------------->
+    <!-- Correct Flutter Logo -->
+    <svg class="logo" viewBox="0 0 300 371.43" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <style>
+                .cls-1 {
+                    fill: none;
+                }
 
-    <section id="loading">
-        <div></div>
-        <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 100 100">
-            <rect width="100" height="100" rx="0" fill="#0000"> 
-                <!-- rect Fill value is full transparent -->
-            </rect>
-            <path d="M61.30 86L61.30 86L22.90 86Q21 86 20.15 85.15Q19.30 84.30 19.30 82.40L19.30 82.40L19.30 17.60Q19.30 15.70 20.15 14.85Q21 14 22.90 14L22.90 14L54.80 14Q64.60 14 69.30 17.75Q74 21.50 74 29.30L74 29.30L74 34.10Q74 38.30 72.55 40.95Q71.10 43.60 68.10 44.90L68.10 44.90Q74.50 45.50 77.60 49.30Q80.70 53.10 80.70 60.40L80.70 60.40L80.70 69.60Q80.70 78 75.95 82Q71.20 86 61.30 86ZM50.30 31L41.80 31L41.80 41.80L50.30 41.80Q52.20 41.80 53.15 40.80Q54.10 39.80 54.10 37.80L54.10 37.80L54.10 35Q54.10 33 53.15 32Q52.20 31 50.30 31L50.30 31ZM54.80 57.20L41.80 57.20L41.80 69L54.80 69Q56.70 69 57.65 68Q58.60 67 58.60 65L58.60 65L58.60 61.10Q58.60 59.10 57.65 58.15Q56.70 57.20 54.80 57.20L54.80 57.20Z">
-                <!-- path(B) Fill value is given on css to change based on theme -->
-            </path>
-        </svg>
-    </section>
+                .cls-2 {
+                    clip-path: url(#clip-path);
+                }
 
-<!----------------------- ABOUT ----------------------->
+                .cls-3 {
+                    isolation: isolate;
+                    opacity: 0.2;
+                }
 
-    <section id="about">
-        <header>
-            <svg class="logo" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 100 100">
-                <rect width="100" height="100" rx="0" fill="#0000"> 
-                    <!-- rect Fill value is full transparent -->
-                </rect>
-                <path d="M61.30 86L61.30 86L22.90 86Q21 86 20.15 85.15Q19.30 84.30 19.30 82.40L19.30 82.40L19.30 17.60Q19.30 15.70 20.15 14.85Q21 14 22.90 14L22.90 14L54.80 14Q64.60 14 69.30 17.75Q74 21.50 74 29.30L74 29.30L74 34.10Q74 38.30 72.55 40.95Q71.10 43.60 68.10 44.90L68.10 44.90Q74.50 45.50 77.60 49.30Q80.70 53.10 80.70 60.40L80.70 60.40L80.70 69.60Q80.70 78 75.95 82Q71.20 86 61.30 86ZM50.30 31L41.80 31L41.80 41.80L50.30 41.80Q52.20 41.80 53.15 40.80Q54.10 39.80 54.10 37.80L54.10 37.80L54.10 35Q54.10 33 53.15 32Q52.20 31 50.30 31L50.30 31ZM54.80 57.20L41.80 57.20L41.80 69L54.80 69Q56.70 69 57.65 68Q58.60 67 58.60 65L58.60 65L58.60 61.10Q58.60 59.10 57.65 58.15Q56.70 57.20 54.80 57.20L54.80 57.20Z">
-                    <!-- path(B) Fill value is given on css to change based on theme -->
-                </path>
+                .cls-4 {
+                    fill: #54c5f8;
+                }
+
+                .cls-5 {
+                    fill: #01579b;
+                }
+
+                .cls-6 {
+                    fill: url(#linear-gradient);
+                }
+
+                .cls-7 {
+                    fill: #29b6f6;
+                }
+
+                .cls-8 {
+                    fill: url(#radial-gradient);
+                }
+            </style>
+            <clipPath id="clip-path">
+                <path class="cls-1"
+                    d="M300,171.43l-100,100,100,100H185.72l-42.86-42.86h0L85.71,271.42l100-100ZM185.72,0,0,185.72l57.15,57.15L300,0Z" />
+            </clipPath>
+        </defs>
+        <g class="cls-2">
+            <polygon class="cls-4"
+                points="300 171.43 300 171.43 300 171.43 185.72 171.43 85.73 271.44 142.85 328.57 300 171.43" />
+        </g>
+        <g class="cls-2">
+            <polygon class="cls-4" points="57.15 242.87 0 185.72 185.72 0 300 0 57.15 242.87" />
+        </g>
+        <g class="cls-2">
+            <polygon class="cls-5"
+                points="142.85 328.57 185.72 371.44 300 371.44 300 371.44 200.01 271.44 142.85 328.57" />
+        </g>
+        <g class="cls-2">
+            <polygon class="cls-6" points="142.85 328.57 227.61 299.24 200.01 271.44 142.85 328.57" />
+        </g>
+        <g class="cls-2">
+            <rect class="cls-7" x="102.45" y="231.03" width="80.81" height="80.81"
+                transform="translate(-150.09 180.52) rotate(-45)" />
+        </g>
+        <path class="cls-8"
+            d="M300,171.43l-100,100,100,100H185.72l-42.86-42.86h0L85.71,271.42l100-100ZM185.72,0,0,185.72l57.15,57.15L300,0Z" />
+    </svg>
+
+    <h1>Balu Vadivel</h1>
+    <p>I'm currently working on my new <span class="highlight">Flutter developer portfolio</span>. Stay tuned for
+        something amazing!</p>
+
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/balu-vadivel/" class="social-link" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
             </svg>
-            <input type="checkbox" id="toggle-input">
-            <label id="toggle-container" for="toggle-input">
-                <span id="icon-hider">
-                </span>
-                <img id="moon" src="./assets/img/icon-moon.svg" alt="">
-                <img id="sun" src="./assets/img/icon-sun.svg" alt="" >
-            </label>
-        </header>
-        <main>
-            <div class="profile">
-                <picture>
-                    <source type="image/webp" srcset="./assets/img/profile.webp">
-                    <img loading="eager" src="./assets/img/profile.jpeg" alt="">
-                </picture>
-                <div>Hi i'm <b>Balu Vadivel</b></div>
-            </div>
-            <div class="about">
-                <h2 class="about-me">About me</h2>
-                <p class="describe">
-                    I am a lifetime learner who is currently learning Front End Web development to create user friendly responsive websites.
-                </p>
-                <a href="mailto:balu15gb@gmail.com">CONTACT</a>
-            </div>
-        </main>
-    </section>
+            LinkedIn
+        </a>
 
-<!----------------------- SKILLS ----------------------->
+        <a href="https://github.com/BaluVadivel" class="social-link" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0112 6.84c.85.004 1.7.114 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" />
+            </svg>
+            GitHub
+        </a>
+    </div>
 
-    <section id="skills">
-        <h1>SKILLS</h1>
-        <div>
-            <div class="skill-section">
-                <div class="skill-title">Front End web</div>
-                <div class="skill-picture">
-                    <picture title="HTML 5">
-                        <source type="image/svg+xml" srcset="./assets/img/skills-html.svg">
-                        <source type="image/webp" srcset="./assets/img/skills-html.webp">
-                        <img loading="eager" src="./assets/img/skills-html.png" alt="">
-                    </picture>
-                    <picture title="CSS 3">
-                        <source type="image/svg+xml" srcset="./assets/img/skills-css.svg">
-                        <source type="image/webp" srcset="./assets/img/skills-css.webp">
-                        <img loading="eager" src="./assets/img/skills-css.png" alt="">
-                    </picture>
-                </div>
-            </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get theme selector element
+            const themeSelector = document.getElementById('theme-selector');
 
-            <div class="skill-section">
-                <div class="skill-title">Programming</div>
-                <div class="skill-picture">
-                    <picture class="noPadding" title="javaScript">
-                        <source type="image/svg+xml" srcset="./assets/img/skills-javascript.svg">
-                        <source type="image/webp" srcset="./assets/img/skills-javascript.webp">
-                        <img loading="eager" src="./assets/img/skills-javascript.png" alt="">
-                    </picture>
-                    <picture title="C Programming">
-                        <source type="image/svg+xml" srcset="./assets/img/skills-c.svg">
-                        <source type="image/webp" srcset="./assets/img/skills-c.webp">
-                        <img loading="eager" src="./assets/img/skills-c.png" alt="">
-                    </picture>
-                </div>
-            </div>
+            // Apply saved theme or auto-detect
+            function applyTheme() {
+                const savedTheme = localStorage.getItem('theme') || 'auto';
+                themeSelector.value = savedTheme;
 
-            <div class="skill-section">
-                <div class="skill-title">Tools</div>
-                <div class="skill-picture">
-                    <picture title="GIT Version Control">
-                        <source type="image/svg+xml" srcset="./assets/img/skills-git.svg">
-                        <source type="image/webp" srcset="./assets/img/skills-git.webp">
-                        <img loading="eager" src="./assets/img/skills-git.png" alt="">
-                    </picture>
-                    <picture  title="VS Code">
-                        <source type="image/svg+xml" srcset="./assets/img/skills-vscode.svg">
-                        <source type="image/webp" srcset="./assets/img/skills-vscode.webp">
-                        <img loading="eager" src="./assets/img/skills-vscode.png" alt="">
-                    </picture>
-                </div>
-            </div>
-        </div>
-    </section>
+                // Remove any existing theme classes
+                document.body.classList.remove('light', 'dark');
 
-<!----------------------- PROJECTS ----------------------->
+                // Determine which theme to apply
+                let themeToApply = savedTheme;
+                if (savedTheme === 'auto') {
+                    themeToApply = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
 
-    <section id="projects">
-        <h1>PROJECTS</h1>
-        <div class="projects-item">
-            <div class="projects-container">
-                <picture>
-                    <source type="image/webp" srcset="./assets/img/project1-tribute-page.webp">
-                    <source type="image/jpg" srcset="./assets/img/project1-tribute-page.jpg">
-                    <img loading="eager" src="./assets/img/project1-tribute-page.png" alt="">
-                </picture>
-                <div class="link">
-                    <a class="link-item" href="https://github.com/BaluVadivel/FreeCodeCamp/tree/main/tribute-page">
-                        <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" ><path d="M255.968,5.329C114.624,5.329,0,120.401,0,262.353c0,113.536,73.344,209.856,175.104,243.872 c12.8,2.368,17.472-5.568,17.472-12.384c0-6.112-0.224-22.272-0.352-43.712c-71.2,15.52-86.24-34.464-86.24-34.464 c-11.616-29.696-28.416-37.6-28.416-37.6c-23.264-15.936,1.728-15.616,1.728-15.616c25.696,1.824,39.2,26.496,39.2,26.496 c22.848,39.264,59.936,27.936,74.528,21.344c2.304-16.608,8.928-27.936,16.256-34.368 c-56.832-6.496-116.608-28.544-116.608-127.008c0-28.064,9.984-51.008,26.368-68.992c-2.656-6.496-11.424-32.64,2.496-68 c0,0,21.504-6.912,70.4,26.336c20.416-5.696,42.304-8.544,64.096-8.64c21.728,0.128,43.648,2.944,64.096,8.672 c48.864-33.248,70.336-26.336,70.336-26.336c13.952,35.392,5.184,61.504,2.56,68c16.416,17.984,26.304,40.928,26.304,68.992 c0,98.72-59.84,120.448-116.864,126.816c9.184,7.936,17.376,23.616,17.376,47.584c0,34.368-0.32,62.08-0.32,70.496 c0,6.88,4.608,14.88,17.6,12.352C438.72,472.145,512,375.857,512,262.353C512,120.401,397.376,5.329,255.968,5.329z" /></svg>
-                        Code
-                    </a>
-                    <a class="link-item" href="https://fcc.balu.dev/tribute-page">
-                        Live
-                        <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"> <path d="M476.853,35.148c-46.864-46.864-122.842-46.864-169.706-0.001L206.853,135.441c-48.475,48.477-43.987,125.717,0,169.706 c7.366,7.366,15.516,13.372,24.122,18.305l18.305-18.305c12.006-12.008,7.78-26.045,7.564-36.174 c-2.635-1.868-5.198-3.887-7.564-6.253c-22.573-22.571-23.588-61.265,0-84.853c3.503-3.503,98.166-98.166,100.292-100.292 c23.399-23.399,61.454-23.399,84.853,0c23.399,23.399,23.399,61.454,0,84.853l-66.293,66.293 c1.917,10.607,13.422,35.733,7.504,77.181c0.289-0.284,0.635-0.467,0.923-0.754l100.294-100.294 C523.715,157.99,523.715,82.012,476.853,35.148z"/> <path d="M312.918,199.081c-7.365-7.366-15.516-13.372-24.12-18.305l-18.305,18.305c-12.008,12.006-7.782,26.043-7.566,36.172 c2.637,1.868,5.2,3.887,7.566,6.253c22.573,22.573,23.588,61.265,0,84.853c-3.511,3.511-106.015,106.015-108.066,108.066 c-23.399,23.399-61.454,23.399-84.853,0c-23.399-23.399-23.399-61.454,0-84.853l74.067-74.067 c-1.917-10.607-13.423-35.733-7.504-77.181c-0.289,0.284-0.637,0.469-0.925,0.756L35.147,307.147 c-46.862,46.864-46.862,122.842,0,169.706c46.864,46.862,122.841,46.862,169.705,0l108.066-108.066 C360.494,321.211,357.894,244.056,312.918,199.081z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div class="projects-container">
-                <picture>
-                    <source type="image/webp" srcset="./assets/img/project2-survey-form.webp">
-                    <img loading="eager" src="./assets/img/project2-survey-form.png" alt="">
-                </picture>
-                <div class="link">
-                    <a class="link-item" href="https://github.com/BaluVadivel/FreeCodeCamp/tree/main/survey-form">
-                        <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" ><path d="M255.968,5.329C114.624,5.329,0,120.401,0,262.353c0,113.536,73.344,209.856,175.104,243.872 c12.8,2.368,17.472-5.568,17.472-12.384c0-6.112-0.224-22.272-0.352-43.712c-71.2,15.52-86.24-34.464-86.24-34.464 c-11.616-29.696-28.416-37.6-28.416-37.6c-23.264-15.936,1.728-15.616,1.728-15.616c25.696,1.824,39.2,26.496,39.2,26.496 c22.848,39.264,59.936,27.936,74.528,21.344c2.304-16.608,8.928-27.936,16.256-34.368 c-56.832-6.496-116.608-28.544-116.608-127.008c0-28.064,9.984-51.008,26.368-68.992c-2.656-6.496-11.424-32.64,2.496-68 c0,0,21.504-6.912,70.4,26.336c20.416-5.696,42.304-8.544,64.096-8.64c21.728,0.128,43.648,2.944,64.096,8.672 c48.864-33.248,70.336-26.336,70.336-26.336c13.952,35.392,5.184,61.504,2.56,68c16.416,17.984,26.304,40.928,26.304,68.992 c0,98.72-59.84,120.448-116.864,126.816c9.184,7.936,17.376,23.616,17.376,47.584c0,34.368-0.32,62.08-0.32,70.496 c0,6.88,4.608,14.88,17.6,12.352C438.72,472.145,512,375.857,512,262.353C512,120.401,397.376,5.329,255.968,5.329z" /></svg>
-                        Code
-                    </a>
-                    <a class="link-item" href="https://fcc.balu.dev/survey-form">
-                        Live
-                        <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"> <path d="M476.853,35.148c-46.864-46.864-122.842-46.864-169.706-0.001L206.853,135.441c-48.475,48.477-43.987,125.717,0,169.706 c7.366,7.366,15.516,13.372,24.122,18.305l18.305-18.305c12.006-12.008,7.78-26.045,7.564-36.174 c-2.635-1.868-5.198-3.887-7.564-6.253c-22.573-22.571-23.588-61.265,0-84.853c3.503-3.503,98.166-98.166,100.292-100.292 c23.399-23.399,61.454-23.399,84.853,0c23.399,23.399,23.399,61.454,0,84.853l-66.293,66.293 c1.917,10.607,13.422,35.733,7.504,77.181c0.289-0.284,0.635-0.467,0.923-0.754l100.294-100.294 C523.715,157.99,523.715,82.012,476.853,35.148z"/> <path d="M312.918,199.081c-7.365-7.366-15.516-13.372-24.12-18.305l-18.305,18.305c-12.008,12.006-7.782,26.043-7.566,36.172 c2.637,1.868,5.2,3.887,7.566,6.253c22.573,22.573,23.588,61.265,0,84.853c-3.511,3.511-106.015,106.015-108.066,108.066 c-23.399,23.399-61.454,23.399-84.853,0c-23.399-23.399-23.399-61.454,0-84.853l74.067-74.067 c-1.917-10.607-13.423-35.733-7.504-77.181c-0.289,0.284-0.637,0.469-0.925,0.756L35.147,307.147 c-46.862,46.864-46.862,122.842,0,169.706c46.864,46.862,122.841,46.862,169.705,0l108.066-108.066 C360.494,321.211,357.894,244.056,312.918,199.081z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div class="projects-container">
-                <picture>
-                    <source type="image/webp" srcset="./assets/img/project3-product-landing.webp">
-                    <img loading="eager" src="./assets/img/project3-product-landing.png" alt="">
-                </picture>
-                <div class="link">
-                    <a class="link-item github-before" href="https://github.com/BaluVadivel/FreeCodeCamp/tree/main/product-landing">
-                        <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" ><path d="M255.968,5.329C114.624,5.329,0,120.401,0,262.353c0,113.536,73.344,209.856,175.104,243.872 c12.8,2.368,17.472-5.568,17.472-12.384c0-6.112-0.224-22.272-0.352-43.712c-71.2,15.52-86.24-34.464-86.24-34.464 c-11.616-29.696-28.416-37.6-28.416-37.6c-23.264-15.936,1.728-15.616,1.728-15.616c25.696,1.824,39.2,26.496,39.2,26.496 c22.848,39.264,59.936,27.936,74.528,21.344c2.304-16.608,8.928-27.936,16.256-34.368 c-56.832-6.496-116.608-28.544-116.608-127.008c0-28.064,9.984-51.008,26.368-68.992c-2.656-6.496-11.424-32.64,2.496-68 c0,0,21.504-6.912,70.4,26.336c20.416-5.696,42.304-8.544,64.096-8.64c21.728,0.128,43.648,2.944,64.096,8.672 c48.864-33.248,70.336-26.336,70.336-26.336c13.952,35.392,5.184,61.504,2.56,68c16.416,17.984,26.304,40.928,26.304,68.992 c0,98.72-59.84,120.448-116.864,126.816c9.184,7.936,17.376,23.616,17.376,47.584c0,34.368-0.32,62.08-0.32,70.496 c0,6.88,4.608,14.88,17.6,12.352C438.72,472.145,512,375.857,512,262.353C512,120.401,397.376,5.329,255.968,5.329z" /></svg>
-                        Code
-                    </a>
-                    <a class="link-item" href="https://fcc.balu.dev/product-landing">
-                        Live
-                        <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"> <path d="M476.853,35.148c-46.864-46.864-122.842-46.864-169.706-0.001L206.853,135.441c-48.475,48.477-43.987,125.717,0,169.706 c7.366,7.366,15.516,13.372,24.122,18.305l18.305-18.305c12.006-12.008,7.78-26.045,7.564-36.174 c-2.635-1.868-5.198-3.887-7.564-6.253c-22.573-22.571-23.588-61.265,0-84.853c3.503-3.503,98.166-98.166,100.292-100.292 c23.399-23.399,61.454-23.399,84.853,0c23.399,23.399,23.399,61.454,0,84.853l-66.293,66.293 c1.917,10.607,13.422,35.733,7.504,77.181c0.289-0.284,0.635-0.467,0.923-0.754l100.294-100.294 C523.715,157.99,523.715,82.012,476.853,35.148z"/> <path d="M312.918,199.081c-7.365-7.366-15.516-13.372-24.12-18.305l-18.305,18.305c-12.008,12.006-7.782,26.043-7.566,36.172 c2.637,1.868,5.2,3.887,7.566,6.253c22.573,22.573,23.588,61.265,0,84.853c-3.511,3.511-106.015,106.015-108.066,108.066 c-23.399,23.399-61.454,23.399-84.853,0c-23.399-23.399-23.399-61.454,0-84.853l74.067-74.067 c-1.917-10.607-13.423-35.733-7.504-77.181c-0.289,0.284-0.637,0.469-0.925,0.756L35.147,307.147 c-46.862,46.864-46.862,122.842,0,169.706c46.864,46.862,122.841,46.862,169.705,0l108.066-108.066 C360.494,321.211,357.894,244.056,312.918,199.081z"/></svg>
-                    </a>
-                </div>
-            </div>
-            <div class="projects-container">
-                <picture>
-                    <source type="image/webp" srcset="./assets/img/project4-technical-documentation.webp">
-                    <img loading="eager" src="./assets/img/project4-technical-documentation.png" alt="">
-                </picture>
-                <div class="link">
-                    <a class="link-item" href="https://github.com/BaluVadivel/FreeCodeCamp/tree/main/technical-documentation">
-                        <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" ><path d="M255.968,5.329C114.624,5.329,0,120.401,0,262.353c0,113.536,73.344,209.856,175.104,243.872 c12.8,2.368,17.472-5.568,17.472-12.384c0-6.112-0.224-22.272-0.352-43.712c-71.2,15.52-86.24-34.464-86.24-34.464 c-11.616-29.696-28.416-37.6-28.416-37.6c-23.264-15.936,1.728-15.616,1.728-15.616c25.696,1.824,39.2,26.496,39.2,26.496 c22.848,39.264,59.936,27.936,74.528,21.344c2.304-16.608,8.928-27.936,16.256-34.368 c-56.832-6.496-116.608-28.544-116.608-127.008c0-28.064,9.984-51.008,26.368-68.992c-2.656-6.496-11.424-32.64,2.496-68 c0,0,21.504-6.912,70.4,26.336c20.416-5.696,42.304-8.544,64.096-8.64c21.728,0.128,43.648,2.944,64.096,8.672 c48.864-33.248,70.336-26.336,70.336-26.336c13.952,35.392,5.184,61.504,2.56,68c16.416,17.984,26.304,40.928,26.304,68.992 c0,98.72-59.84,120.448-116.864,126.816c9.184,7.936,17.376,23.616,17.376,47.584c0,34.368-0.32,62.08-0.32,70.496 c0,6.88,4.608,14.88,17.6,12.352C438.72,472.145,512,375.857,512,262.353C512,120.401,397.376,5.329,255.968,5.329z" /></svg>
-                        Code
-                    </a>
-                    <a class="link-item" href="https://fcc.balu.dev/technical-documentation">
-                        Live
-                        <svg class="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"> <path d="M476.853,35.148c-46.864-46.864-122.842-46.864-169.706-0.001L206.853,135.441c-48.475,48.477-43.987,125.717,0,169.706 c7.366,7.366,15.516,13.372,24.122,18.305l18.305-18.305c12.006-12.008,7.78-26.045,7.564-36.174 c-2.635-1.868-5.198-3.887-7.564-6.253c-22.573-22.571-23.588-61.265,0-84.853c3.503-3.503,98.166-98.166,100.292-100.292 c23.399-23.399,61.454-23.399,84.853,0c23.399,23.399,23.399,61.454,0,84.853l-66.293,66.293 c1.917,10.607,13.422,35.733,7.504,77.181c0.289-0.284,0.635-0.467,0.923-0.754l100.294-100.294 C523.715,157.99,523.715,82.012,476.853,35.148z"/> <path d="M312.918,199.081c-7.365-7.366-15.516-13.372-24.12-18.305l-18.305,18.305c-12.008,12.006-7.782,26.043-7.566,36.172 c2.637,1.868,5.2,3.887,7.566,6.253c22.573,22.573,23.588,61.265,0,84.853c-3.511,3.511-106.015,106.015-108.066,108.066 c-23.399,23.399-61.454,23.399-84.853,0c-23.399-23.399-23.399-61.454,0-84.853l74.067-74.067 c-1.917-10.607-13.423-35.733-7.504-77.181c-0.289,0.284-0.637,0.469-0.925,0.756L35.147,307.147 c-46.862,46.864-46.862,122.842,0,169.706c46.864,46.862,122.841,46.862,169.705,0l108.066-108.066 C360.494,321.211,357.894,244.056,312.918,199.081z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+                // Apply the theme with smooth transition
+                setTimeout(() => {
+                    document.body.classList.add(themeToApply);
+                    document.body.classList.add('theme-loaded');
+                }, 10);
+            }
 
-<!----------------------- CONTACT ----------------------->
+            // Listen for theme changes
+            themeSelector.addEventListener('change', function () {
+                localStorage.setItem('theme', this.value);
+                applyTheme();
+            });
 
-    <section id="contact">
-        <h1>CONTACT</h1>
-        <div class="mail-container">
-            <a id="mail" href="mailto:balu15gb@gmail.com">
-                balu15gb@gmail.com
-            </a>
-        </div>
-        <div class="social-link-container">
-            <div class="social-link-title">Let’s Connect</div>
-            <div class="social-link">
-                <a href="https://github.com/BaluVadivel">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" >
-                        <path d="M255.968,5.329C114.624,5.329,0,120.401,0,262.353c0,113.536,73.344,209.856,175.104,243.872 c12.8,2.368,17.472-5.568,17.472-12.384c0-6.112-0.224-22.272-0.352-43.712c-71.2,15.52-86.24-34.464-86.24-34.464 c-11.616-29.696-28.416-37.6-28.416-37.6c-23.264-15.936,1.728-15.616,1.728-15.616c25.696,1.824,39.2,26.496,39.2,26.496 c22.848,39.264,59.936,27.936,74.528,21.344c2.304-16.608,8.928-27.936,16.256-34.368 c-56.832-6.496-116.608-28.544-116.608-127.008c0-28.064,9.984-51.008,26.368-68.992c-2.656-6.496-11.424-32.64,2.496-68 c0,0,21.504-6.912,70.4,26.336c20.416-5.696,42.304-8.544,64.096-8.64c21.728,0.128,43.648,2.944,64.096,8.672 c48.864-33.248,70.336-26.336,70.336-26.336c13.952,35.392,5.184,61.504,2.56,68c16.416,17.984,26.304,40.928,26.304,68.992 c0,98.72-59.84,120.448-116.864,126.816c9.184,7.936,17.376,23.616,17.376,47.584c0,34.368-0.32,62.08-0.32,70.496 c0,6.88,4.608,14.88,17.6,12.352C438.72,472.145,512,375.857,512,262.353C512,120.401,397.376,5.329,255.968,5.329z"/>
-                    </svg>
-                    Github
-                </a>
-                <a href="https://twitter.com/BaluVadivel">
-                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
-                        <path d="M 24 4.300781 C 23.101563 4.699219 22.199219 5 21.199219 5.101563 C 22.199219 4.5 23 3.5 23.398438 2.398438 C 22.398438 3 21.398438 3.398438 20.300781 3.601563 C 19.300781 2.601563 18 2 16.601563 2 C 13.898438 2 11.699219 4.199219 11.699219 6.898438 C 11.699219 7.300781 11.699219 7.699219 11.800781 8 C 7.699219 7.800781 4.101563 5.898438 1.699219 2.898438 C 1.199219 3.601563 1 4.5 1 5.398438 C 1 7.101563 1.898438 8.601563 3.199219 9.5 C 2.398438 9.398438 1.601563 9.199219 1 8.898438 C 1 8.898438 1 8.898438 1 9 C 1 11.398438 2.699219 13.398438 4.898438 13.800781 C 4.5 13.898438 4.101563 14 3.601563 14 C 3.300781 14 3 14 2.699219 13.898438 C 3.300781 15.898438 5.101563 17.300781 7.300781 17.300781 C 5.601563 18.601563 3.5 19.398438 1.199219 19.398438 C 0.800781 19.398438 0.398438 19.398438 0 19.300781 C 2.199219 20.699219 4.800781 21.5 7.5 21.5 C 16.601563 21.5 21.5 14 21.5 7.5 C 21.5 7.300781 21.5 7.101563 21.5 6.898438 C 22.5 6.199219 23.300781 5.300781 24 4.300781"/>
-                    </svg>
-                    Twitter
-                </a>
-                <a href="https://linkedin.com/in/Balu-V">
-                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
-                        <path d="M 21.800781 0 L 2.199219 0 C 1 0 0 1 0 2.199219 L 0 21.800781 C 0 23 1 24 2.199219 24 L 21.800781 24 C 23 24 24 23 24 21.800781 L 24 2.199219 C 24 1 23 0 21.800781 0 Z M 7 20 L 3 20 L 3 9 L 7 9 Z M 5 7.699219 C 3.800781 7.699219 3 6.898438 3 5.898438 C 3 4.800781 3.800781 4 5 4 C 6.199219 4 7 4.800781 7 5.800781 C 7 6.898438 6.199219 7.699219 5 7.699219 Z M 21 20 L 17 20 L 17 14 C 17 12.398438 15.898438 12 15.601563 12 C 15.300781 12 14 12.199219 14 14 C 14 14.199219 14 20 14 20 L 10 20 L 10 9 L 14 9 L 14 10.601563 C 14.601563 9.699219 15.601563 9 17.5 9 C 19.398438 9 21 10.5 21 14 Z"/>
-                    </svg>
-                    Linkedin
-                </a>
-            </div>
-        </div>
-    </section>
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                if (themeSelector.value === 'auto') {
+                    applyTheme();
+                }
+            });
 
-<!----------------------- FOOTER ----------------------->
-
-    <footer>
-        <div>
-            &copy;2021 Balu
-        </div>
-        <div>
-            <a href="https://github.com/BaluVadivel/balu.dev">Source Code</a>
-        </div>
-    </footer>
-
+            // Initial theme application
+            applyTheme();
+        });
+    </script>
 </body>
-<script src="./assets/script/script.js"></script>
+
 </html>
