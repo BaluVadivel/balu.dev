@@ -22,8 +22,6 @@
     <meta property="og:image" content="./assets/profile.jpeg">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
         :root {
             --primary: #02569B;
             --primary-light: #45D1FD;
@@ -53,7 +51,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -416,7 +414,10 @@
             <header>
                 <div class="profile-section">
                     <div class="mobile-title">
-                        <img src="./assets/profile.jpeg" alt="Balu V" class="profile-img">
+                        <picture>
+                            <source srcset="./assets/profile.webp" type="image/webp">
+                            <img src="./assets/profile.jpeg" alt="Balu V" class="profile-img">
+                        </picture>
                         <div>
                             <h1>Balu V</h1>
                             <h2>Flutter Developer</h2>
@@ -424,7 +425,10 @@
                     </div>
 
                     <div class="desktop-title">
-                        <img src="./assets/profile.jpeg" alt="Balu V" class="profile-img">
+                        <picture>
+                            <source srcset="./assets/profile.webp" type="image/webp">
+                            <img src="./assets/profile.jpeg" alt="Balu V" class="profile-img">
+                        </picture>
                         <h1>Balu V</h1>
                         <h2>Flutter Developer</h2>
                     </div>
