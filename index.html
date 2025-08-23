@@ -5,13 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balu V - Flutter Developer</title>
-    <meta name='keywords' content=' Balu V , Balu Flutter , balu.dev , balu dev '>
-    <meta name="description" content="Portfolio coming soon - Flutter developer creating beautiful cross-platform apps">
-    <meta name='author' content='Balu V'>
-    <meta name='subject' content='Portfolio coming soon'>
-    <meta name='url' content='https://balu.dev'>
+    <meta name="description"
+        content="Flutter developer specializing in high-performance cross-platform applications. Creator of Dio Cache Plus, a smart caching solution for Dio HTTP requests.">
+    <meta name="keywords"
+        content="Balu V, Flutter developer, Dart, Dio Cache Plus, mobile development, cross-platform apps, HTTP caching">
+    <meta name="author" content="Balu V">
+    <meta name="url" content="https://balu.dev">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://balu.dev">
+    <meta property="og:title" content="Balu V - Flutter Developer">
+    <meta property="og:description"
+        content="Flutter developer specializing in high-performance cross-platform applications. Creator of Dio Cache Plus.">
+    <meta property="og:image" content="./assets/profile.jpeg">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
@@ -23,16 +34,7 @@
             --gray: #F5F5F5;
             --card-bg: #FFFFFF;
             --text-secondary: #555;
-            --transition-speed: 1s;
-            /* Increased to 2 seconds */
-        }
-
-        /* Fallback gray theme (before JS loads) */
-        body:not(.theme-loaded) {
-            --bg: #f0f0f0;
-            --card-bg: #e0e0e0;
-            --text: #333333;
-            --text-secondary: #666666;
+            --transition-speed: 0.3s;
         }
 
         /* Dark theme variables */
@@ -56,37 +58,150 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
             line-height: 1.6;
             transition: background-color var(--transition-speed) ease,
                 color var(--transition-speed) ease;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        .logo {
-            width: 120px;
-            height: 148px;
-            margin-bottom: 2rem;
-            animation: float 6s ease-in-out infinite;
+        .main-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            header {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 4rem;
+            }
+        }
+
+        .profile-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+        }
+
+        @media (min-width: 1024px) {
+            .profile-section {
+                max-width: 300px;
+                position: sticky;
+                top: 2rem;
+            }
+        }
+
+        .mobile-title {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-title {
+                display: none;
+            }
+        }
+
+        .content-section {
+            flex: 2;
+            max-width: 100%;
+            padding-top: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .content-section {
+                margin-top: 0;
+                max-width: 600px;
+            }
+        }
+
+        .desktop-title {
+            display: none;
+            text-align: center;
+            width: 100%;
+        }
+
+        @media (min-width: 1024px) {
+            .desktop-title {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .desktop-title img {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .profile-img {
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            margin-bottom: .5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
+        h2 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
         p {
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
             color: var(--text-secondary);
-            transition: color var(--transition-speed) ease;
+            font-size: 1.1rem;
         }
 
         .highlight {
@@ -94,10 +209,97 @@
             font-weight: 600;
         }
 
+        /* Divider */
+        .divider {
+            height: 1px;
+            background-color: var(--gray);
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        /* Theme toggle styles */
+        .theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .theme-select {
+            padding: 0.7rem 1.5rem 0.7rem 1rem;
+            border-radius: 8px;
+            background: var(--gray);
+            color: var(--text);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1rem;
+            padding-right: 2rem;
+            font-size: 0.9rem;
+            touch-action: manipulation;
+        }
+
+        .theme-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Package section */
+        .package {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .package-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .package-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .package-title a:hover {
+            text-decoration: underline;
+        }
+
+        .package-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Connect section */
+        .connect {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Social links */
         .social-links {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links-profile {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .social-link {
@@ -112,9 +314,10 @@
             background: var(--gray);
         }
 
-        .social-link:hover {
+        .social-link:hover,
+        .social-link:focus {
             background: var(--primary);
-            color: white;
+            color: var(--bg);
             transform: translateY(-3px);
         }
 
@@ -124,86 +327,83 @@
             fill: currentColor;
         }
 
-        /* Theme toggle styles - centered at top */
-        .theme-toggle {
-            position: absolute;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--gray);
+            width: 100%;
         }
 
-        .theme-select {
-            padding: 0.5rem 1.5rem 0.5rem 1rem;
-            /* More padding on right */
-            border-radius: 8px;
-            background: var(--gray);
-            color: var(--text);
-            border: none;
-            cursor: pointer;
-            transition: all var(--transition-speed) ease;
-            appearance: none;
-            /* Remove default arrow */
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 0.5rem center;
-            background-size: 1rem;
-            padding-right: 2rem;
-            /* Space for custom arrow */
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
         }
 
-        .theme-select:hover {
-            background: var(--primary);
-            color: white;
+        footer a:hover,
+        footer a:focus {
+            text-decoration: underline;
         }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
             }
 
-            50% {
-                transform: translateY(-15px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        @media (max-width: 600px) {
             h1 {
                 font-size: 2rem;
             }
 
-            p {
-                font-size: 1rem;
-            }
-
-            .social-links {
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-            }
-
-            .social-link {
-                justify-content: center;
+            h2 {
+                font-size: 1.1rem;
             }
 
             .theme-toggle {
                 position: static;
-                transform: none;
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
+                justify-content: flex-end;
+            }
+
+            .profile-img {
+                width: 135px;
+                height: 135px;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+        }
+
+        /* Improve mobile interaction */
+        @media (max-width: 480px) {
+            .theme-select {
+                padding: 0.8rem 1.2rem 0.8rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .social-link {
+                padding: 1rem 1.5rem;
+            }
+
+            .mobile-title {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .package,
+            .connect {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Theme Toggle - Centered at Top -->
+    <!-- Theme Toggle -->
     <div class="theme-toggle">
         <select id="theme-selector" class="theme-select">
             <option value="auto">Auto</option>
@@ -212,90 +412,101 @@
         </select>
     </div>
 
-    <!-- Correct Flutter Logo -->
-    <svg class="logo" viewBox="0 0 300 371.43" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <style>
-                .cls-1 {
-                    fill: none;
-                }
+    <div class="main-container">
+        <div class="container">
+            <!-- Header Section -->
+            <header>
+                <div class="profile-section">
+                    <div class="mobile-title">
+                        <img src="./assets/profile.jpeg" alt="Balu V" class="profile-img">
+                        <div>
+                            <h1>Balu V</h1>
+                            <h2>Flutter Developer</h2>
+                        </div>
+                    </div>
 
-                .cls-2 {
-                    clip-path: url(#clip-path);
-                }
+                    <div class="desktop-title">
+                        <img src="./assets/profile.jpeg" alt="Balu V" class="profile-img">
+                        <h1>Balu V</h1>
+                        <h2>Flutter Developer</h2>
+                    </div>
 
-                .cls-3 {
-                    isolation: isolate;
-                    opacity: 0.2;
-                }
+                    <div class="social-links-profile">
+                        <a href="https://github.com/BaluVadivel" class="social-link" target="_blank" rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0112 6.84c.85.004 1.7.114 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
 
-                .cls-4 {
-                    fill: #54c5f8;
-                }
+                <div class="content-section">
+                    <p>I'm a <span class="highlight">Flutter developer</span> with experience building high-performance,
+                        user-friendly mobile and web applications using clean architecture and scalable code practices.
+                    </p>
 
-                .cls-5 {
-                    fill: #01579b;
-                }
+                    <p>I contribute to open source projects to strengthen the Flutter ecosystem and help developers
+                        create better applications.</p>
 
-                .cls-6 {
-                    fill: url(#linear-gradient);
-                }
+                    <div class="divider"></div>
 
-                .cls-7 {
-                    fill: #29b6f6;
-                }
+                    <!-- Package Section -->
+                    <div class="package">
+                        <h3 class="package-title"><a href="https://pub.dev/packages/dio_cache_plus"
+                                target="_blank">dio_cache_plus</a></h3>
+                        <p class="package-desc">A Flutter/Dart package for advanced caching for Dio with request control
+                            and flexible expiration to improve performance and reduce bandwidth.</p>
+                        <a href="https://pub.dev/publishers/balu.dev/packages" class="social-link" target="_blank"
+                            rel="noopener">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 19l-1-1 5-5-5-5 1-1 6 6-6 6zm6-12h-2v10h2v-10z" />
+                            </svg>
+                            View all packages
+                        </a>
+                    </div>
 
-                .cls-8 {
-                    fill: url(#radial-gradient);
-                }
-            </style>
-            <clipPath id="clip-path">
-                <path class="cls-1"
-                    d="M300,171.43l-100,100,100,100H185.72l-42.86-42.86h0L85.71,271.42l100-100ZM185.72,0,0,185.72l57.15,57.15L300,0Z" />
-            </clipPath>
-        </defs>
-        <g class="cls-2">
-            <polygon class="cls-4"
-                points="300 171.43 300 171.43 300 171.43 185.72 171.43 85.73 271.44 142.85 328.57 300 171.43" />
-        </g>
-        <g class="cls-2">
-            <polygon class="cls-4" points="57.15 242.87 0 185.72 185.72 0 300 0 57.15 242.87" />
-        </g>
-        <g class="cls-2">
-            <polygon class="cls-5"
-                points="142.85 328.57 185.72 371.44 300 371.44 300 371.44 200.01 271.44 142.85 328.57" />
-        </g>
-        <g class="cls-2">
-            <polygon class="cls-6" points="142.85 328.57 227.61 299.24 200.01 271.44 142.85 328.57" />
-        </g>
-        <g class="cls-2">
-            <rect class="cls-7" x="102.45" y="231.03" width="80.81" height="80.81"
-                transform="translate(-150.09 180.52) rotate(-45)" />
-        </g>
-        <path class="cls-8"
-            d="M300,171.43l-100,100,100,100H185.72l-42.86-42.86h0L85.71,271.42l100-100ZM185.72,0,0,185.72l57.15,57.15L300,0Z" />
-    </svg>
+                    <div class="divider"></div>
 
-    <h1>Balu Vadivel</h1>
-    <p>I'm currently working on my new <span class="highlight">Flutter developer portfolio</span>. Stay tuned for
-        something amazing!</p>
+                    <!-- Connect Section -->
+                    <div class="connect">
+                        <h3>Connect With Me</h3>
+                        <p>I'm available to help other Flutter developers and contribute to the community through
+                            guidance or open source collaboration.</p>
 
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/balu-vadivel/" class="social-link" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                    d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
-            </svg>
-            LinkedIn
-        </a>
+                        <p>Feel free to reach out if you need advice on Flutter or want to discuss ideas regarding open
+                            source projects.</p>
 
-        <a href="https://github.com/BaluVadivel" class="social-link" target="_blank" rel="noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                    d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.26.1-2.64 0 0 .84-.27 2.75 1.02A9.58 9.58 0 0112 6.84c.85.004 1.7.114 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" />
-            </svg>
-            GitHub
-        </a>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/in/balu-vadivel/" class="social-link" target="_blank"
+                                rel="noopener">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
+                                </svg>
+                                LinkedIn
+                            </a>
+
+                            <a href="mailto:apps.balu.dev@gmail.com" class="social-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z" />
+                                </svg>
+                                Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>balu.dev | Source code on <a href="https://github.com/BaluVadivel/balu.dev" target="_blank">GitHub</a>
+            </p>
+        </footer>
     </div>
 
     <script>
